@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Muhammed KOCAOGLU
 -- 
 -- Create Date: 01/02/2022 12:21:40 AM
--- Design Name: 
+-- Design Name: Operator Overloading
 -- Module Name: OperatorOverloading_pkg - Behavioral
 -- Project Name: 
 -- Target Devices: 
