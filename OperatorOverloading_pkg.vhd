@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: Muhammed KOCAOGLU
+-- Engineer: MUHAMMED KOCAOGLU
 -- 
 -- Create Date: 01/02/2022 12:21:40 AM
--- Design Name: Operator Overloading
+-- Design Name: 
 -- Module Name: OperatorOverloading_pkg - Behavioral
 -- Project Name: 
 -- Target Devices: 
@@ -39,28 +39,28 @@ END PACKAGE OperatorOverloading_pkg;
 PACKAGE BODY OperatorOverloading_pkg IS
     -- addition overloading for 2d array
     FUNCTION "+" (L : array2D; R : array2D) RETURN array2D IS
-        CONSTANT msb1 : NATURAL := L'length - 1;
-        CONSTANT msb2 : NATURAL := L(0)'length - 1;
-        VARIABLE sum  : array2D (0 TO msb1)(msb2 DOWNTO 0);
+        CONSTANT DEPTH1 : NATURAL := L'length - 1;
+        CONSTANT DEPTH2 : NATURAL := L(0)'length - 1;
+        VARIABLE result : array2D (0 TO DEPTH1)(DEPTH2 DOWNTO 0);
     BEGIN
-        FOR i IN 0 TO msb1 LOOP
-            sum(i) := L(i) + R(i);
+        FOR i IN 0 TO DEPTH1 LOOP
+            result(i) := L(i) + R(i);
         END LOOP;
-        RETURN sum;
+        RETURN result;
     END;
     -- addition overloading for 3d array
     FUNCTION "+" (L : array3D; R : array3D) RETURN array3D IS
-        CONSTANT msb1 : NATURAL := L'length - 1;
-        CONSTANT msb2 : NATURAL := L(0)'length - 1;
-        CONSTANT msb3 : NATURAL := L(0)(0)'length - 1;
-        VARIABLE sum  : array3D (0 TO msb1)(0 TO msb2)(msb3 DOWNTO 0);
+        CONSTANT DEPTH1 : NATURAL := L'length - 1;
+        CONSTANT DEPTH2 : NATURAL := L(0)'length - 1;
+        CONSTANT DEPTH3 : NATURAL := L(0)(0)'length - 1;
+        VARIABLE result : array3D (0 TO DEPTH1)(0 TO DEPTH2)(DEPTH3 DOWNTO 0);
     BEGIN
-        FOR i IN 0 TO msb1 LOOP
-            FOR j IN 0 TO msb2 LOOP
-                sum(i)(j) := L(i)(j) + R(i)(j);
+        FOR i IN 0 TO DEPTH1 LOOP
+            FOR j IN 0 TO DEPTH2 LOOP
+                result(i)(j) := L(i)(j) + R(i)(j);
             END LOOP;
         END LOOP;
-        RETURN sum;
+        RETURN result;
     END;
 
     ---- D E P T H 2
@@ -90,14 +90,14 @@ PACKAGE BODY OperatorOverloading_pkg IS
         CONSTANT DEPTH2 : NATURAL := R(0)'length - 1;
         CONSTANT DEPTH3 : NATURAL := R(0)(0)'length - 1;
         CONSTANT DEPTH4 : NATURAL := L'length;
-        VARIABLE res    : array3D (0 TO DEPTH1)(0 TO DEPTH2)(DEPTH4 + DEPTH3 DOWNTO 0);
+        VARIABLE result : array3D (0 TO DEPTH1)(0 TO DEPTH2)(DEPTH4 + DEPTH3 DOWNTO 0);
     BEGIN
         FOR i IN 0 TO DEPTH1 LOOP
             FOR j IN 0 TO DEPTH2 LOOP
-                res(i)(j) := L & R(i)(j);
+                result(i)(j) := L & R(i)(j);
             END LOOP;
         END LOOP;
-        RETURN res;
+        RETURN result;
     END;
 
     FUNCTION "&" (L : array3D; R : array3D) RETURN array3D IS
